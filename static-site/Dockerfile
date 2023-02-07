@@ -1,7 +1,4 @@
-FROM nginx
-
-COPY wrapper.sh /
-
-COPY html /usr/share/nginx/html
-
-CMD ["./wrapper.sh"]
+FROM nginx:alpine
+WORKDIR /app
+COPY html static
+COPY ./nginx.conf /etc/nginx/nginx.conf
